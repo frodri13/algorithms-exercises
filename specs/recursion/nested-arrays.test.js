@@ -11,9 +11,19 @@
 
 function nestedAdd(array) {
   // write code here
+  let total = 0;
+  for(let i = 0; i < array.length; i++){
+    let element = array[i];
+    if(typeof element == 'number') {
+      total = total + element;
+    } else {
+      total = total + nestedAdd(element);
+    }
+  }
+  return total;
 }
 
-test.skip("nested arrays addition", () => {
+test("nested arrays addition", () => {
   expect(nestedAdd([1, 2, 3])).toEqual(6);
   expect(nestedAdd([1, [2], 3])).toEqual(6);
   expect(nestedAdd([[[[[[[[[5]]]]]]]]])).toEqual(5);
