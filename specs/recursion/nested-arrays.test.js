@@ -15,9 +15,9 @@ function nestedAdd(array) {
   for(let i = 0; i < array.length; i++){
     let element = array[i];
     if(typeof element == 'number') {
-      total = total + element;
+      total += element;
     } else {
-      total = total + nestedAdd(element);
+      total += nestedAdd(element);
     }
   }
   return total;
